@@ -1,0 +1,20 @@
+.App {
+  color: red;
+  font-family: comic sans ms;
+  text-align: center;
+}
+h1 {
+  color: purple;
+}
+p {
+  text-align: justify;
+  color: green;
+}
+.user-profile {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+  border-radius: 20%;
+  border-color: greenyellow;
+  border-top-left-radius: 0ch;
+}

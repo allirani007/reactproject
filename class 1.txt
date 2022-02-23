@@ -1,0 +1,49 @@
+Node - Env to run javascript in backend/frontend
+NPM - Node Package Manager - GitHub
+Yarn - FaceBook
+
+Check version of Node:
+> node -v
+
+Check version of NPM:
+> npm -v
+
+Initialize :
+> npm init
+> npm init -y
+
+Default Config :
+> npm config set init-author-name "Guvi"
+> npm config set init-license "MIT"
+
+> npm config get init-author-name
+> npm config get init-license
+
+> npm config delete init-author-name
+> npm config delete init-license
+
+Install/Uninstall Package :
+> npm install lodash
+> npm install lodash@4.17.11
+> npm install eslint --save-dev
+> npm root -g
+> npm install eslint -g
+> npm install
+> npm install --prod
+> npm uninstall eslint
+
+Listing Package :
+> npm list --depth 1
+
+Updating Package :
+^6.9.10
+> npm update lodash
+6.11.34
+
+~6.9.10
+> npm update lodash
+6.9.15
+
+Scripts :
+> npm start (Inbuilt commands)
+> npm run guvi (Custom Commands)
