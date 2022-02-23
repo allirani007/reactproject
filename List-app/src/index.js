@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 //import Ticket from './Ticket';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Textarea from './Textarea';
+//import Textarea from './Textarea';
+import App from './App';
 
 ReactDOM.render(
-  <Textarea />,
+  <App />,
   document.getElementById('root')
 );
 

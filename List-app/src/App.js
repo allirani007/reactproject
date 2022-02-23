@@ -3,7 +3,7 @@ import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 function App() {
   var mystyle={
-    fontSize:80,
+    fontSize:40,
     fontFamily:'courier',
     color:'#003300'
   }
@@ -29,7 +29,8 @@ function App() {
             <div>Pondicherry famous beach area</div>
             <ul>
               {
-                datacollection.map((item,index)=> <li key={index}>{item.title}</li>
+                datacollection.map((nn)=><li key={nn.id} >{nn.title}</li>
+                //datacollection.map((item,index)=> <li key={index}>{item.title}</li>
                 )
               }
             </ul>
