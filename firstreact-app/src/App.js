@@ -66,7 +66,7 @@ export default function App() {
         "https://m.media-amazon.com/images/M/MV5BYmM3OTEzOTEtM2Y4Yi00ZGNjLWJmMjAtOTQ4YjBiOGUzZmNkXkEyXkFqcGdeQXVyMTI3MjIwMzU2._V1_FMjpg_UX1000_.jpg",
       about:
         "Synopsis:A young woman named Paaru notices a painting on the walls of a coastal town that depicts a fairy tale she once heard as a child. Intrigued, she sets out to find the person who painted it.",
-       Rating:"⭐⭐⭐⭐⭐"
+       Rating:"5"
     },
     {
     name: "annatha",
@@ -104,7 +104,7 @@ export default function App() {
 //   );
 // }
 
-function Msg({ name, pic, about }) {
+function Msg({ name, pic, about,Rating }) {
   // const name = "Allirani🤷‍♂️✔✔💖";
   //console.log(Props, name);
   return (
@@ -114,6 +114,7 @@ function Msg({ name, pic, about }) {
         <div>
           <h6>Movie Title: {name}</h6>
           <p>{about}</p>
+          <p>{Rating}</p>
          
           <a href="#" className="btn btn-primary">
             Home
