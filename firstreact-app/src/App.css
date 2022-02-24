@@ -20,6 +20,44 @@ p {
   border-color: greenyellow;
   border-top-left-radius: 0ch;
 }
-.card{
-  border-color: brown;
+.movie-container{
+  background: orange;
+  width: 340;
+
 }
+.movie-img {
+  height: 500px;
+  width: 340px;
+  object-fit: cover;
+  }
+  .movie-spec{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .movie-name{
+    margin: 0;
+    font-size: 24px;
+  }
+  .movie-summary{
+    margin-top: 0px;
+  }
+  .rating{
+    font-size: 18px;
+  }
+.movie-list{
+  display:flex;
+  gap: 10px;
+}
+  
+
+.rr{
+  font-family: cursive;
+  font-size: 12px;
+  color: orange;
+}
+.fff{
+  display:flex;
+}
+
+
