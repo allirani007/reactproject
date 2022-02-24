@@ -1,20 +1,25 @@
 .App {
   color: red;
-  font-family: comic sans ms;
+  font-family: cursive;
   text-align: center;
 }
 h1 {
   color: purple;
+  text-align: center;
 }
 p {
-  text-align: justify;
+  text-align:left;
   color: green;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
 }
 .user-profile {
-  height: 300px;
-  width: 300px;
+  height: 200px;
+  width: 150px;
   object-fit: cover;
   border-radius: 20%;
   border-color: greenyellow;
   border-top-left-radius: 0ch;
+}
+.card{
+  border-color: brown;
 }
