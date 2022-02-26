@@ -26,31 +26,31 @@ p {
 
 }
 .movie-img {
-  height: 500px;
-  width: 340px;
+  height: 100px;
+  width: 34x;
   object-fit: cover;
   }
-  .movie-spec{
+.movie-spec{
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .movie-name{
+.movie-name{
     margin: 0;
     font-size: 24px;
   }
-  .movie-summary{
+.movie-summary{
     margin-top: 0px;
   }
-  .rating{
+.rating{
     font-size: 18px;
   }
 .movie-list{
   display:flex;
   gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
-  
-
 .rr{
   font-family: cursive;
   font-size: 12px;
