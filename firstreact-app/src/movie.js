@@ -97,7 +97,7 @@ import Nature from "./Nature";
   const [rating1,setRating1]=useState("");
   
   return (
-    <div classNameName="App">
+    <div className="App">
         <div className="add-movie-form">
         <input type="text"  onChange={(event) => 
           setName(event.target.value) }
@@ -128,9 +128,13 @@ import Nature from "./Nature";
       <h3>Total click Viewer :</h3>
       <hr />
       <div className="row">
-        {MovieList.map((usr) => (
-          <Msg name={usr.name} pic={usr.pic} about={usr.about} Rating={usr.Rating} Rating1={usr.Rating1} />
+        {/* {MovieList.map((usr) => (
+          <Msg  name={usr.name} pic={usr.pic} about={usr.about} Rating={usr.Rating} Rating1={usr.Rating1} />
+        ))} */}
+{MovieList.map(({name,pic,about,Rating,Rating1},index) => (
+          <Msg key={index} name={name} pic={pic} about={about} Rating={Rating} Rating1={Rating1} />
         ))}
+
         {/* <Welcome  profile="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" name="alli" />
       <Welcome name="rani" profile="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg" />
 
@@ -164,9 +168,9 @@ function Msg({ name, pic, about,Rating,Rating1 }) {
           <p>{about}<br></br><span style={styles} className="rr">{Rating}</span></p>
           <p style={styles} className="Movie-rating">Rating:{Rating1}</p>
             
-          <a href="#" className="btn btn-primary">
+          {/* <a href="#" className="btn btn-primary">
             Home
-          </a>
+          </a> */}
           <Counter />
         </div>
       </div>
@@ -185,7 +189,7 @@ function Counter() {
 }
 // export default function App() {
 //           return (
-//         <div classNameName="App">
+//         <div className="App">
 //           <Addcolor />
 //         </div>
 //       );
@@ -238,7 +242,7 @@ function Counter() {
 //   //console.log(Props, name);
 //   return (
 //     <div>
-//       <img classNameName="user-profile" src={Props.profile} alt="hgj" />
+//       <img className="user-profile" src={Props.profile} alt="hgj" />
 //       <h1> Hai {Props.name} </h1>
 //     </div>
 //   );
