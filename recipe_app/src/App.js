@@ -6,16 +6,17 @@ function App() {
   return (
     <div className="App">
       
-      <ul>
-      <li><Link to="/recipe-list">RecipeList</Link></li>
+      <ul className="itemList">
       <li><Link to="/">Home</Link></li>
+      <li><Link to="/recipe-list">RecipeList</Link></li>
+      <li><link to="/addItem">Add New item</link></li>
       </ul>
       <Switch>
         <Route path="/recipe-list"><RecipeList /></Route>
+        <Route path="/addItem"><AddItem /></Route>
         <Route path="/"><Welcome/> </Route>
       </Switch>
-   
-    
+      
     </div>
   );
 }
@@ -67,8 +68,12 @@ function Recipe({recipe}){
       <img src={recipe.pic} alt={recipe.name} className="recipe_picture" />
       <p className="recipe-name">{recipe.name}</p>
     </div>
-  )
+  );
 
+}
+
+function addItem(){
+  return();
 }
 
 export default App;

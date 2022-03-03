@@ -23,5 +23,12 @@
   display: flex;
   flex-wrap: wrap;
     justify-content: space-around;
-    align-items: baseline;
-}
+    align-items: baseline;}
+  .itemList{
+    display: flex;
+    list-style: none;
+    background-color: rgba(166, 255, 0, 0.247);
+    align-items: center;
+    justify-content: space-between;
+
+  }

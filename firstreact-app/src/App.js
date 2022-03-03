@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
-import Movie from "./movie";
+import Movie from "./Movie";
 
 //  export default function App() {
   
@@ -11,7 +11,8 @@ import Movie from "./movie";
 //         "https://images.news18.com/ibnlive/uploads/2021/07/1626014989_valimai.jpg",
 //       about:
 //       "Synopsis:A super cop tries to track down the brain behind a series of robberies and murders, but things turn personal when his family become pawns in the criminal's game.",
-//        Rating:"⭐⭐⭐⭐⭐"
+//        Rating:"⭐⭐⭐⭐⭐",
+//        Rating1:9.4
 
 //     },
 //     {
@@ -20,7 +21,8 @@ import Movie from "./movie";
 //         "https://assets.thehansindia.com/h-upload/2021/11/27/1600x960_1123689-veeramae-vaagai-soodum.jpg",
 //       about:
 //         "Synopsis:A police aspirant tries to track down the criminals who have murdered his sister.",
-//          Rating:"⭐⭐⭐"
+//          Rating:"⭐⭐⭐",
+//          Rating1:7.1
 //     },
 //     {
 //       name: "Naai Sekar",
@@ -28,7 +30,8 @@ import Movie from "./movie";
 //         "https://images.pexels.com/photos/618833/pexels-photo-618833.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
 //       about:
 //         "Synopsis:Naai Sekar is likely to appeal more to kids, especially those under-10. For the rest, this is a film that will feel funny in parts and juvenile in the rest.",
-//         Rating:"⭐⭐"
+//         Rating:"⭐⭐",
+//         Rating1:6.4
 //     },
 //     {
 //       name: "Enna Solla Pogirai",
@@ -36,7 +39,8 @@ import Movie from "./movie";
 //         "https://m.media-amazon.com/images/M/MV5BM2Y0ODBhYjctNzZiYi00ODIwLWJiMmYtM2ZlNjUwZDlkYjQ3XkEyXkFqcGdeQXVyMTQyOTU3OTMw._V1_FMjpg_UX1000_.jpg",
 //       about:
 //         "Synopsis:Three individuals with clear notions of what romance discover the indefinable magic that is love when they end up in a triangular romantic relationship. ",
-//         Rating:"⭐⭐⭐⭐⭐"
+//         Rating:"⭐⭐⭐⭐⭐",
+//         Rating1:9.5
 //     },
 //     {
 //       name: "Yaaro",
@@ -44,7 +48,8 @@ import Movie from "./movie";
 //         "https://i1.wp.com/www.socialnews.xyz/wp-content/uploads/2019/10/30/Yaaro-Movie-First-Look-Poster-.jpg?quality=80&zoom=1&ssl=1",
 //       about:
 //         "Synopsis:Yaaro, is an edge-of-the-seat thriller that revolves around the life of a loner, who had a troubled childhood.",
-//        Rating:"⭐⭐⭐"
+//        Rating:"⭐⭐⭐",
+//        Rating1:6.4
 //     },
 //     {
 //       name: "Maaran",
@@ -52,7 +57,8 @@ import Movie from "./movie";
 //         "https://static.toiimg.com/photo/msid-87310079/87310079.jpg?118968",
 //       about:
 //         "Synopsis:A man who follows the Gandhian path of non-violence is forced to resort to violence when he fails to get justice from the judicial system.",
-//        Rating:"⭐⭐⭐"
+//        Rating:"⭐⭐⭐⭐",
+//        Rating1:8.4
 //     },
 //     {
 //       name: "Mahaan",
@@ -60,7 +66,9 @@ import Movie from "./movie";
 //         "https://static-koimoi.akamaized.net/wp-content/new-galleries/2022/02/mahaan-movie-review-1.jpg",
 //       about:
 //         "A middle-aged school teacher is abandoned by his family after he decides to live a life of his own. He realises his dream of becoming a billionaire, but misses his son.",
-//        Rating:"⭐⭐⭐⭐⭐"
+//        Rating:"⭐⭐⭐⭐⭐",
+//        Rating1:8.9
+
 //     },
 //     {
 //       name: "maara",
@@ -68,7 +76,8 @@ import Movie from "./movie";
 //         "https://m.media-amazon.com/images/M/MV5BYmM3OTEzOTEtM2Y4Yi00ZGNjLWJmMjAtOTQ4YjBiOGUzZmNkXkEyXkFqcGdeQXVyMTI3MjIwMzU2._V1_FMjpg_UX1000_.jpg",
 //       about:
 //         "Synopsis:A young woman named Paaru notices a painting on the walls of a coastal town that depicts a fairy tale she once heard as a child. Intrigued, she sets out to find the person who painted it.",
-//        Rating:"⭐⭐⭐"
+//        Rating:"⭐⭐⭐",
+//        Rating1:6.7
 //     },
 //     {
 //     name: "annatha",
@@ -76,7 +85,8 @@ import Movie from "./movie";
 //         "https://m.media-amazon.com/images/M/MV5BMjNkNTE1NGUtNjNhMi00ZmY1LWI2NDEtZWZlYTkwZjNjMGMzXkEyXkFqcGdeQXVyMTEzNzg0Mjkx._V1_.jpg",
 //       about:
 //         "Synopsis:Kaalaiyan loves his younger sister dearly and does everything to make her happy. When she elopes with her lover to Kolkata, he goes to great lengths to protect her from the clutches of an evil don.",
-//        Rating:"⭐⭐⭐⭐⭐"
+//        Rating:"⭐⭐⭐⭐⭐",
+//        Rating1:9.5
 //     }
 //   ];
 //   return (
@@ -86,7 +96,7 @@ import Movie from "./movie";
 //       <hr />
 //       <div className="row">
 //         {user.map((usr) => (
-//           <Msg name={usr.name} pic={usr.pic} about={usr.about} Rating={usr.Rating} />
+//           <Msg name={usr.name} pic={usr.pic} about={usr.about} Rating={usr.Rating} Rating1={usr.Rating1} />
 //         ))}
 //         {/* <Welcome  profile="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" name="alli" />
 //       <Welcome name="rani" profile="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg" />
@@ -96,16 +106,16 @@ import Movie from "./movie";
 //     </div>
 //   );
 // }
-// export default function App() {
-//   const names = ["uma", "mani", "sudha", "suresh", "hema"];
-//   return (
-//     <div classNameName="App">
-//       {names.map((nm) => (
-//         <Msg name={nm} />
-//       ))}
-//     </div>
-//   );
-// }
+// // export default function App() {
+// //   const names = ["uma", "mani", "sudha", "suresh", "hema"];
+// //   return (
+// //     <div classNameName="App">
+// //       {names.map((nm) => (
+// //         <Msg name={nm} />
+// //       ))}
+// //     </div>
+// //   );
+// // }
 export default function App() {
     
     return (
@@ -115,7 +125,10 @@ export default function App() {
     );
   }
 
-// function Msg({ name, pic, about,Rating }) {
+// function Msg({ name, pic, about,Rating,Rating1 }) {
+//   const styles={
+//     color:Rating1>8.5 ? "purple" :"red",
+//     }
 //   const [count, setcount] = useState(0);
 //   // const name = "Allirani🤷‍♂️✔✔💖";
 //   //console.log(Props, name);
@@ -124,7 +137,8 @@ export default function App() {
 //        <img className="user-profile" src={pic} alt="Movie name" />
 //         <div>
 //           <h6>Movie Title: {name}</h6>
-//           <p>{about}<br></br><span className="rr">Rating:{Rating}</span></p>
+//           <p>{about}<br></br><span style={styles} className="rr">{Rating}</span></p>
+//           <p style={styles} className="Movie-rating">Rating:{Rating1}</p>
             
 //           <a href="#" className="btn btn-primary" onClick={() => setcount(count + 1)}>
 //             Home
@@ -141,10 +155,20 @@ export default function App() {
 //     <div className="fff">
 //       <button onClick={() => setLike(like + 1)}>👍{like}</button>
 //       <button onClick={() => setDislike(dislike + 1)}>👎{dislike}</button>
-                      
+                
 //     </div>
 //   );
 // }
+// export default function App() {
+//           return (
+//         <div classNameName="App">
+//           <Addcolor />
+//         </div>
+//       );
+//     }
+
+
+// 
 // function Welcome(Props) {
 //   // const name = "Allirani🤷‍♂️✔✔💖";
 //   //console.log(Props, name);

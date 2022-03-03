@@ -14,7 +14,7 @@ p {
 }
 .user-profile {
   height: 200px;
-  width: 150px;
+  width: 340px;
   object-fit: cover;
   border-radius: 20%;
   border-color: greenyellow;
@@ -22,12 +22,12 @@ p {
 }
 .movie-container{
   background: orange;
-  width: 340;
+  width: 340px;
 
 }
 .movie-img {
-  height: 100px;
-  width: 34x;
+  height: 400px;
+  width: 340px;
   object-fit: cover;
   }
 .movie-spec{
@@ -61,3 +61,10 @@ p {
 }
 
 
+.add-movie-form{
+display: flex;
+flex-direction: column;
+gap: 10px;
+margin: 16px;
+
+}
