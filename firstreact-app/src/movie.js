@@ -1,6 +1,9 @@
 import "./App.css";
 import React, { useState } from "react";
 import Nature from "./Nature";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
 
  export default function Movie() {
    
@@ -99,22 +102,26 @@ import Nature from "./Nature";
   return (
     <div className="App">
         <div className="add-movie-form">
-        <input type="text"  onChange={(event) => 
+        <TextField  variant="outlined" onChange={(event) => 
           setName(event.target.value) }
           placeholder="Enter the name of Movie" value={name}/>
-        <input type="text" onChange={(event) => 
+        <TextField  variant="outlined" onChange={(event) => 
           setPoster(event.target.value) }
           placeholder="Enter the Poster of Movie" value={poster}/>
-        <input type="text" onChange={(event) => 
+       <TextField  variant="outlined" onChange={(event) => 
           setRating(event.target.value) }
           placeholder="Enter the Rating star of Movie" value={rating}/>
-          <input type="text" onChange={(event) => 
+        <TextField  variant="outlined" onChange={(event) => 
           setRating1(event.target.value) }
           placeholder="Enter the Rating of Movie" value={rating1}/>
-        <input type="text" onChange={(event) => 
+         <TextField  variant="outlined" onChange={(event) => 
           setsummary(event.target.value) }
           placeholder="Enter the Summary of Movie" value={summary}/>
-        <button onClick={()=>{
+         {/* <input type="text" onChange={(event) =>  //general form element model 
+          setsummary(event.target.value) }
+          placeholder="Enter the Summary of Movie" value={summary}/> */}
+       
+            <Button variant="contained" onClick={()=>{
             const newMovie={
                 name:name,
                 pic:poster,
@@ -122,7 +129,7 @@ import Nature from "./Nature";
                 Rating:rating,
                 Rating1:rating1
             };
-            setMovieList([...MovieList,newMovie])}}>Add Movie</button>
+            setMovieList([...MovieList,newMovie])}}>Add Movie</Button>
         </div>
       <h1>List of Tamil films of 2021</h1>
       <h3>Total click Viewer :</h3>
