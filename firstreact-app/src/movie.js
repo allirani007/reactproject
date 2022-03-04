@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Nature from "./Nature";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import { NoEncryption } from "@mui/icons-material";
 
 
  export default function Movie() {
@@ -161,6 +162,10 @@ import TextField from '@mui/material/TextField';
 // //   }
 
 function Msg({ name, pic, about,Rating,Rating1 }) {
+  const [hide,sethide]=useState(true)
+  const styes2= {
+    display: hide ? "block" :"none" }  
+  
   const styles={
     color:Rating1>8.5 ? "purple" :"red",
     }
@@ -172,7 +177,9 @@ function Msg({ name, pic, about,Rating,Rating1 }) {
        <img className="user-profile" src={pic} alt="Movie name" />
         <div>
           <h6>Movie Title: {name}</h6>
-          <p>{about}<br></br><span style={styles} className="rr">{Rating}</span></p>
+          <p style={styes2}>{about}<br></br><span style={styles} className="rr">{Rating}</span></p>
+          <Button variant="outlined" size="small" onClick={()=>sethide(!hide)}>
+            Toggle Description</Button>          
           <p style={styles} className="Movie-rating">Rating:{Rating1}</p>
             
           {/* <a href="#" className="btn btn-primary">
