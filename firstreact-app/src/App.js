@@ -1,6 +1,200 @@
 import "./App.css";
 import React, { useState } from "react";
 import Movie from "./Movie";
+import {Msg,Double} from "./msg"
+import Addcolor from "./Addcolor";
+import { Switch, Route, Link,Redirect } from "react-router-dom";
+import { HomeWorkOutlined } from "@mui/icons-material";
+import useWindowSize from 'react-use/lib/useWindowSize'
+import Confetti from 'react-confetti'
+
+
+// This site has 3 pages, all of which are rendered
+// dynamically in the browser (not server rendered).
+//
+// Although the page does not ever refresh, notice how
+// React Router keeps the URL up to date as you navigate
+// through the site. This preserves the browser history,
+// making sure things like the back button and bookmarks
+// work properly.
+
+export default function App() {
+  return (
+    <div>
+      <ul>
+                     
+        <li>
+          <Link to="/Movie">Movie</Link>
+        </li>
+        <li>
+          <Link to="/Color-game">Color-game</Link>
+        </li>
+        <li>
+          <Link to="/tic-tac-toe">TicTacToe</Link>
+        </li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        </ul>
+
+      <hr />
+
+      {/*
+          A <Switch> looks through all its children <Route>
+          elements and renders the first one whose path
+          matches the current URL. Use a <Switch> any time
+          you have multiple routes, but you want only one
+          of them to render at a time
+        */}
+      <Switch>
+        {/* Each route is case, eg. - case '/about': */}
+        <Route  exact path="/">
+          {/* Match url display the below component */}
+          <h1> Hi, B30WD </h1>
+          <Home />
+        </Route>
+        <Route path="/Movie">
+          <Movie />
+        </Route>
+        <Route path="/films">
+          <Redirect to ="/Movie" />
+        </Route>
+          <Route path="/Color-game">
+          <Addcolor />
+        </Route>
+        <Route path="/tic-tac-toe">
+          <TicTacToe />
+        </Route>
+        <Route path="**">
+         <NotFound />
+        </Route>
+      </Switch>
+    </div>
+  );
+}
+function NotFound(){
+  return (
+    <div>
+      <h1 className="not-found"> 404 </h1>
+      <img src="https://freshwater.b-cdn.net/wp-content/uploads/2020/08/404-image.jpg" alt="404 File not Found"></img>
+    </div>
+  )
+}
+// Task
+// /movies - add movie & movie list
+// / -> Welcome to movie app
+
+// /movies - add movie & movie list
+// / -> Welcome to movie app
+
+// You can think of these components as "pages"
+// in your app.
+
+function Home() {
+  return (
+    <div>
+      <h2> Welcome All!!! My Movie app & Interesting Color Game</h2>
+      <h2>🏝🏜🏜🏘🏘🏗🏗</h2>
+      {/* <TableComp /> */}
+    </div>
+  );
+}
+//loop --> map
+//parent component  -> child component(data has be passed)-> props
+function TicTacToe() {
+const [board,setboard] = useState ([null,null,null,null,null,null,null,null,null]);
+//useState([0,1,2,3,4,5,6,7,8]);
+
+
+const decideWinner=(board)=>{
+const lines=[
+[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6],];
+//if winning condition present in the board then we have a winner
+for(let i=0;i<lines.length;i++)
+{
+const [a,b,c]=lines[i];
+//console.log(a,b,c);
+if(board[a]!=="null" && board[a]===board[b] && board[b]===board[c]){
+  console.log("Winner is",board[a]);
+  return board[a];
+}
+}
+return null;
+};
+
+const winner=decideWinner(board);
+
+const [isXturn,setisXturn]=useState(true);
+
+const handleClick=(index)=>
+{
+  //copy the board and replace with "X" in the clicked gamebox
+  // update only untouched boxes &  until no winner
+  if(winner===null && board[index]===null){
+  const boardcopy=[...board];
+  console.log(boardcopy,index);
+  boardcopy[index]=isXturn ? "X" : "O";
+  setisXturn(!isXturn);
+  setboard(boardcopy);
+}
+}
+
+// function getStatus() {
+//   if (winner) {
+//     return "Winner: " + winner;
+//   } else if (board[index]===null) {
+//     return "Draw!";
+//   } 
+// }
+const { width, height } = useWindowSize()
+  
+      
+
+  return  ( <div className="full-game">
+    {winner? <Confetti
+      width={width}
+      height={height}
+      gravity={0.01}
+      wind={0}
+    /> : ""}
+  <div className="game1">
+	{board.map((val,index)=>(
+            <Gamebox  val={val} onPlayerClick={()=>handleClick(index)}/>
+            ))}
+          </div>
+          {/* <div className="game-info">{getStatus()}</div> */}
+          {winner?<h2>Winner is {winner}</h2> : ""}
+           <button onClick={()=>{setboard([null,null,null,null,null,null,null,null,null]);
+            setisXturn(true);          
+          }}>Restart</button>
+          </div>
+  );
+}
+//{val} -> object destructuring
+// function Gamebox({val}){
+// //const val="x";
+//   const styles={
+//     color:val==="X" ? "Green" :"red",
+//   };
+
+//      return (<div style={styles} className="game-box">{val}</div>);
+// }
+
+//changing val requires Hook
+
+function Gamebox({val,onPlayerClick}){
+ // const [val,setval]=useState(null);
+  //const val="x";
+    const styles={
+      color:val==="X" ? "Green" :"red",
+    };
+  
+       return (<div onClick={()=>onPlayerClick()}
+        // onClick={()=>setval(val==="X" ? "O":"X")} 
+        style={styles} className="game-box">{val}</div>);
+  }
+
+
 
 //  export default function App() {
   
@@ -116,79 +310,16 @@ import Movie from "./Movie";
 // //     </div>
 // //   );
 // // }
-export default function App() {
-    
-    return (
-      <div classNameName="App">
-        <Movie />
-      </div>
-    );
-  }
-
-// function Msg({ name, pic, about,Rating,Rating1 }) {
-//   const styles={
-//     color:Rating1>8.5 ? "purple" :"red",
-//     }
-//   const [count, setcount] = useState(0);
-//   // const name = "Allirani🤷‍♂️✔✔💖";
-//   //console.log(Props, name);
-//   return (
-//     <div className="col-4 mb-3">
-//        <img className="user-profile" src={pic} alt="Movie name" />
-//         <div>
-//           <h6>Movie Title: {name}</h6>
-//           <p>{about}<br></br><span style={styles} className="rr">{Rating}</span></p>
-//           <p style={styles} className="Movie-rating">Rating:{Rating1}</p>
-            
-//           <a href="#" className="btn btn-primary" onClick={() => setcount(count + 1)}>
-//             Home
-//           </a>
-//           <Counter />
-//         </div>
-//       </div>
-//       );
-// }
-// function Counter() {
-//   const [like, setLike] = useState(0);
-//   const [dislike, setDislike] = useState(0);
-//   return (
-//     <div className="fff">
-//       <button onClick={() => setLike(like + 1)}>👍{like}</button>
-//       <button onClick={() => setDislike(dislike + 1)}>👎{dislike}</button>
-                
-//     </div>
-//   );
-// }
 // export default function App() {
-//           return (
-//         <div classNameName="App">
-//           <Addcolor />
-//         </div>
-//       );
-//     }
+//   //console.log(Double(3)); 
+//     return (
+//       <div classNameName="App">
+//         {/* <Msg profile="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" name="alli" /> */}
+//         <Movie />
+        
+//       </div>
+      
+//     );
+//   }
 
 
-// 
-// function Welcome(Props) {
-//   // const name = "Allirani🤷‍♂️✔✔💖";
-//   //console.log(Props, name);
-//   return (
-//     <div>
-//       <img classNameName="user-profile" src={Props.profile} alt="hgj" />
-//       <h1> Hai {Props.name} </h1>
-//     </div>
-//   );
-// }
-// function Welcome1(Props) {
-//   // const name = "Allirani🤷‍♂️✔✔💖";
-//   //console.log(Props, name);
-//   return (
-//     <div>
-//       <h1> Hai {Props.name} </h1>
-//       <p /> Alli Rani, also known as Alli arasi, is a legendary Tamil queen of
-//       the Sangam period, who is thought to have ruled the whole western and
-//       northern coast of Sri Lanka from her capital Kudiramalai. According to
-//       folklore, her fort, Allirani fort, is located in Mannar, Sri Lanka.
-//     </div>
-//   );
-// }

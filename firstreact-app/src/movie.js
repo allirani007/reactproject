@@ -3,7 +3,15 @@ import React, { useState } from "react";
 import Nature from "./Nature";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import IconButton from '@mui/material/IconButton';
+import Badge from '@mui/material/Badge';
+import Stack from '@mui/material/Stack';
+import MailIcon from '@mui/icons-material/Mail';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { NoEncryption } from "@mui/icons-material";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
  export default function Movie() {
@@ -163,8 +171,10 @@ import { NoEncryption } from "@mui/icons-material";
 
 function Msg({ name, pic, about,Rating,Rating1 }) {
   const [hide,sethide]=useState(true)
-  const styes2= {
-    display: hide ? "block" :"none" }  
+  const [less,setless]=useState(true)
+  //conditional styling model
+ // const styes2= {
+   // display: hide ? "block" :"none" }  
   
   const styles={
     color:Rating1>8.5 ? "purple" :"red",
@@ -176,10 +186,18 @@ function Msg({ name, pic, about,Rating,Rating1 }) {
     <div className="col-4 mb-3">
        <img className="user-profile" src={pic} alt="Movie name" />
         <div>
-          <h6>Movie Title: {name}</h6>
-          <p style={styes2}>{about}<br></br><span style={styles} className="rr">{Rating}</span></p>
-          <Button variant="outlined" size="small" onClick={()=>sethide(!hide)}>
-            Toggle Description</Button>          
+          <h6>Movie Title: {name}
+          <IconButton color="primary" aria-label="add to shopping cart">
+       {hide? <ExpandLessIcon  onClick={()=>sethide(!hide)}/> :<ExpandMoreIcon onClick={()=>sethide(!hide)  }/>}
+    </IconButton >
+          </h6>
+          {/* conditional styling model */}
+          {/* <p style={styes2}>{about}<br></br><span style={styles} className="rr">{Rating}</span></p> */}
+          {/* conditional rendering model */}
+         {hide ? <p>{about}<br></br><span style={styles} className="rr">{Rating}</span></p> :""}
+         
+          {/* <Button variant="outlined" size="small" onClick={()=>sethide(!hide)}>
+            Toggle Description</Button>           */}
           <p style={styles} className="Movie-rating">Rating:{Rating1}</p>
             
           {/* <a href="#" className="btn btn-primary">
@@ -194,83 +212,20 @@ function Counter() {
   const [like, setLike] = useState(0);
   const [dislike, setDislike] = useState(0);
   return (
-    <div className="fff">
-      <button onClick={() => setLike(like + 1)}>👍{like}</button>
-      <button onClick={() => setDislike(dislike + 1)}>👎{dislike}</button>
+    <div className="counter-container">
+ <IconButton aria-label="delete" color="primary"  onClick={() => setLike(like + 1)}>
+ <Badge badgeContent={like} color="primary" showZero>
+👍
+</Badge>
+</IconButton>
+<IconButton aria-label="delete" color="error"  onClick={() => setDislike(dislike + 1)}>
+<Badge badgeContent={dislike} color="error" showZero>
+👎
+</Badge>
+</IconButton>  
+      
                 
     </div>
   );
 }
-// export default function App() {
-//           return (
-//         <div className="App">
-//           <Addcolor />
-//         </div>
-//       );
-//     }
 
-
-// function Addcolor(){
-//   const [color,setcolor]=useState("pink");
-//   const styles={
-//     background:color,
-//   };
-//  // const colorList=["red","blue","green","skyblue"]
-//   const [colorList,setcolorList]=useState([
-//     "crimson",
-//     "orange",
-//     "skyblue",
-//     "red",
-//   ]);
-//   return(
-//     <div>
-//       <input type= "text" style={styles} 
-//       onChange={(event) => 
-//       setcolor(event.target.value) }
-//       placeholder="Enter a color" value={color}></input>
-//      {/* <button>AddColor</button> */}
-//       <button onClick={()=>setcolorList([...colorList,color])}>
-//      AddColor
-//        </button>
-//         {colorList.map((clr)=>(
-//           <Colorbox color={clr} />
-//         ))}      
-//        {/* <Colorbox color="red" />
-//        <Colorbox color="green" />
-//        <Colorbox color="blue" /> */}
-//           </div>
-//   )
-// }
-
-// function Colorbox({color}){
-//   const styles={
-//     backgroundColor:color,
-//     height:"50px",
-//     width:"200px",
-//     marginTop:"10px"
-//   };
-//   return (<div style={styles}></div>)
-// }
-// function Welcome(Props) {
-//   // const name = "Allirani🤷‍♂️✔✔💖";
-//   //console.log(Props, name);
-//   return (
-//     <div>
-//       <img className="user-profile" src={Props.profile} alt="hgj" />
-//       <h1> Hai {Props.name} </h1>
-//     </div>
-//   );
-// }
-// function Welcome1(Props) {
-//   // const name = "Allirani🤷‍♂️✔✔💖";
-//   //console.log(Props, name);
-//   return (
-//     <div>
-//       <h1> Hai {Props.name} </h1>
-//       <p /> Alli Rani, also known as Alli arasi, is a legendary Tamil queen of
-//       the Sangam period, who is thought to have ruled the whole western and
-//       northern coast of Sri Lanka from her capital Kudiramalai. According to
-//       folklore, her fort, Allirani fort, is located in Mannar, Sri Lanka.
-//     </div>
-//   );
-// }
