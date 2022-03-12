@@ -3,20 +3,19 @@ import React, { useState } from "react";
 import Nature from "./Nature";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
 import Stack from '@mui/material/Stack';
 import MailIcon from '@mui/icons-material/Mail';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { NoEncryption } from "@mui/icons-material";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { listClasses } from "@mui/material";
+import { MovieList1 } from "./MovieList1";
+ 
 
-
+//Movie--->MovieList---->DisplayMovies --flow of Movie app
  export default function Movie() {
    
-  const user = [
+  const INT_MOVIE_LIST = [
     {
       name: "Valimai",
       pic:
@@ -101,7 +100,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
        Rating1:9.5
     }
   ];
-  const [MovieList,setMovieList]=useState(user);
+  const [MovieList,setMovieList]=useState(INT_MOVIE_LIST);
   const [name,setName]=useState("");
   const [poster,setPoster]=useState("");
   const [rating,setRating]=useState("");
@@ -136,96 +135,16 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
                 pic:poster,
                 about:summary,
                 Rating:rating,
-                Rating1:rating1
+                Rating1:rating1,
+                
             };
             setMovieList([...MovieList,newMovie])}}>Add Movie</Button>
         </div>
       <h1>List of Tamil films of 2021</h1>
       <h3>Total click Viewer :</h3>
       <hr />
-      <div className="row">
-        {/* {MovieList.map((usr) => (
-          <Msg  name={usr.name} pic={usr.pic} about={usr.about} Rating={usr.Rating} Rating1={usr.Rating1} />
-        ))} */}
-{MovieList.map(({name,pic,about,Rating,Rating1},index) => (
-          <Msg key={index} name={name} pic={pic} about={about} Rating={Rating} Rating1={Rating1} />
-        ))}
-
-        {/* <Welcome  profile="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" name="alli" />
-      <Welcome name="rani" profile="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg" />
-
-      <Welcome name="suresh" /> */}
-      </div>
+      <MovieList1 MovieList={MovieList} setMovieList={setMovieList}/>
     </div>
   );
  }
-
-// // export default function App() {
-    
-// //     return (
-// //       <div className="App">
-// //         <Nature />
-// //       </div>
-// //     );
-// //   }
-
-function Msg({ name, pic, about,Rating,Rating1 }) {
-  const [hide,sethide]=useState(true)
-  const [less,setless]=useState(true)
-  //conditional styling model
- // const styes2= {
-   // display: hide ? "block" :"none" }  
-  
-  const styles={
-    color:Rating1>8.5 ? "purple" :"red",
-    }
- 
-  // const name = "Allirani🤷‍♂️✔✔💖";
-  //console.log(Props, name);
-  return (
-    <div className="col-4 mb-3">
-       <img className="user-profile" src={pic} alt="Movie name" />
-        <div>
-          <h6>Movie Title: {name}
-          <IconButton color="primary" aria-label="add to shopping cart">
-       {hide? <ExpandLessIcon  onClick={()=>sethide(!hide)}/> :<ExpandMoreIcon onClick={()=>sethide(!hide)  }/>}
-    </IconButton >
-          </h6>
-          {/* conditional styling model */}
-          {/* <p style={styes2}>{about}<br></br><span style={styles} className="rr">{Rating}</span></p> */}
-          {/* conditional rendering model */}
-         {hide ? <p>{about}<br></br><span style={styles} className="rr">{Rating}</span></p> :""}
-         
-          {/* <Button variant="outlined" size="small" onClick={()=>sethide(!hide)}>
-            Toggle Description</Button>           */}
-          <p style={styles} className="Movie-rating">Rating:{Rating1}</p>
-            
-          {/* <a href="#" className="btn btn-primary">
-            Home
-          </a> */}
-          <Counter />
-        </div>
-      </div>
-      );
-}
-function Counter() {
-  const [like, setLike] = useState(0);
-  const [dislike, setDislike] = useState(0);
-  return (
-    <div className="counter-container">
- <IconButton aria-label="delete" color="primary"  onClick={() => setLike(like + 1)}>
- <Badge badgeContent={like} color="primary" showZero>
-👍
-</Badge>
-</IconButton>
-<IconButton aria-label="delete" color="error"  onClick={() => setDislike(dislike + 1)}>
-<Badge badgeContent={dislike} color="error" showZero>
-👎
-</Badge>
-</IconButton>  
-      
-                
-    </div>
-  );
-}
 
