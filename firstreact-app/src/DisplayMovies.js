@@ -3,6 +3,8 @@ import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import InfoIcon from '@mui/icons-material/Info';
+import { useHistory } from "react-router-dom";
 
 // // export default function App() {
 // //     return (
@@ -13,9 +15,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 // //   }
 
 
-export function DisplayMovies({ name, pic, about, Rating, Rating1, deletebutton }) {
+export function DisplayMovies({ name, pic, about, Rating, Rating1, deletebutton,id }) {
   const [hide, sethide] = useState(true);
-  const [less, setless] = useState(true);
+  const history = useHistory(true);
   //conditional styling model
   // const styes2= {
   // display: hide ? "block" :"none" }  
@@ -33,6 +35,10 @@ export function DisplayMovies({ name, pic, about, Rating, Rating1, deletebutton 
           <IconButton color="primary" aria-label="add to shopping cart">
             {hide ? <ExpandLessIcon onClick={() => sethide(!hide)} /> : <ExpandMoreIcon onClick={() => sethide(!hide)} />}
           </IconButton>
+
+          <IconButton color="primary" onClick={()=> history.push(`/Movie/${id}`)}>
+          <InfoIcon />
+          </IconButton>
         </h6>
         {/* conditional styling model */}
         {/* <p style={styes2}>{about}<br></br><span style={styles} className="rr">{Rating}</span></p> */}
@@ -46,7 +52,8 @@ export function DisplayMovies({ name, pic, about, Rating, Rating1, deletebutton 
         {/* <a href="#" className="btn btn-primary">
               Home
             </a> */}
-        <Counter /> {deletebutton}
+        <div>
+        <Counter /> {deletebutton} </div>
       </div>
     </div>
   );
