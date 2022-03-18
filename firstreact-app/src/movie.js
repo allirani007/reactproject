@@ -109,7 +109,7 @@ import { MovieList1 } from "./MovieList1";
   //   }
   // ];
   // const [MovieList,setMovieList]=useState(INT_MOVIE_LIST);
-      console.log(MovieList,setMovieList);
+      //console.log(MovieList,setMovieList);
     return (
     <div>
       <h1>List of Tamil films of 2021</h1>

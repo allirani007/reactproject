@@ -2,8 +2,11 @@ import React from "react";
 import { DisplayMovies } from "./DisplayMovies";
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export function MovieList1({ MovieList, setMovieList }) {
+  const history =useHistory();
   return(
   <div className="movie-list">
     {/*  sending orbject - then restructing {MovieList.map((usr) => (
@@ -14,14 +17,21 @@ export function MovieList1({ MovieList, setMovieList }) {
         pic={pic} about={about}
         Rating={Rating} Rating1={Rating1}
         deletebutton={
-          <IconButton aria-label="delete" color="error" onClick={() => { console.log(index);
+          
+          <IconButton aria-label="delete" color="error" style={{ marginLeft: "auto" }} onClick={() => { console.log(index);
             const Copymovielist=[...MovieList];
             Copymovielist.splice(index,1);
             setMovieList(Copymovielist);
           }}>
           <DeleteIcon />
         </IconButton>
-        }  id={index}/>
+        }  id={index} 
+        editbutton={<IconButton aria-label="delete" color="secondary" 
+        onClick={() => history.push(`/Movie/edit/${index}`)} > 
+        <EditIcon/>
+      </IconButton>
+      }  
+        />
          
         ))}
 

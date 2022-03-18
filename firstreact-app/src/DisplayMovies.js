@@ -5,6 +5,7 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import InfoIcon from '@mui/icons-material/Info';
 import { useHistory } from "react-router-dom";
+import { Block } from "@mui/icons-material";
 
 // // export default function App() {
 // //     return (
@@ -15,7 +16,7 @@ import { useHistory } from "react-router-dom";
 // //   }
 
 
-export function DisplayMovies({ name, pic, about, Rating, Rating1, deletebutton,id }) {
+export function DisplayMovies({ name, pic, about, Rating, Rating1, deletebutton,id,editbutton }) {
   const [hide, sethide] = useState(true);
   const history = useHistory(true);
   //conditional styling model
@@ -52,8 +53,8 @@ export function DisplayMovies({ name, pic, about, Rating, Rating1, deletebutton,
         {/* <a href="#" className="btn btn-primary">
               Home
             </a> */}
-        <div>
-        <Counter /> {deletebutton} </div>
+        <div style={{display:Block}}>
+        <Counter /> {deletebutton} {editbutton}</div>
       </div>
     </div>
   );

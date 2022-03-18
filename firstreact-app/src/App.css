@@ -2,6 +2,7 @@
   color: red;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
   text-align: center;
+  background-color: rgb(125, 155, 236);
 }
 h1 {
   color: purple;
@@ -70,6 +71,13 @@ margin: 16px;
 
 }
 
+.edit-movie-form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 16px; 
+}
+
 .game-box{
   height: 160px;
   width: 160px;
@@ -98,4 +106,8 @@ margin: 16px;
   max-width: 800px;
   padding: 24px;
 
+}
+.route-container
+{
+margin: 20px;
 }

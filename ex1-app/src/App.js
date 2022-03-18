@@ -58,7 +58,7 @@ import PostApp from "./PostApp";
    // console.log("rendered");
         return(
 
-            <Jobapp1 />
+            <PostApp />
         );
 
         // <>
