@@ -1,0 +1,53 @@
+import React, { useEffect, useState } from "react";
+import "./App.css";
+const API = "http://localhost:4000";
+export default function App() {
+  const [mobiles, setMobiles] = useState([]);
+
+  useEffect(() => {
+    fetch(`${API}/mobiles`)
+      .then((data) => data.json())
+      .then((data1) => setMobiles(data1));
+  }, []);
+  console.log(mobiles);
+
+  // const mobiles = [
+  //   {
+  //     model: "OnePlus 9 5G",
+  //     img: "https://m.media-amazon.com/images/I/61fy+u9uqPL._SX679_.jpg",
+  //     company: "Oneplus",
+  //   },
+  //   {
+  //     model: "Iphone 13 mini",
+  //     img: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-mini-blue-select-2021?wid=470&hei=556&fmt=jpeg&qlt=95&.v=1645572315986",
+  //     company: "Apple",
+  //   },
+  //   {
+  //     model: "Samsung s21 ultra",
+  //     img: "https://m.media-amazon.com/images/I/81kfA-GtWwL._SY606_.jpg",
+  //     company: "Samsung",
+  //   },
+  //   {
+  //     model: "xiomi mi 11",
+  //     img: "https://m.media-amazon.com/images/I/51K4vNxMAhS._AC_SX522_.jpg",
+  //     company: "xiomi",
+  //   },
+  // ];
+  return (
+    <div className="phone-list-container">
+      {mobiles.map((mobile, index) => (
+        <Phone mobile={mobile} />
+      ))}
+    </div>
+  );
+}
+
+function Phone({ mobile }) {
+  return (
+    <div className="phone-container">
+      <img className="phone-picture" src={mobile.img} alt={mobile.model}></img>
+      <h2 className="phone-name">{mobile.model}</h2>
+      <p className="phone-company">{mobile.company}</p>
+    </div>
+  );
+}

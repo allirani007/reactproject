@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import {API} from "./globe"
 
-
-export function Addmovies({ MovieList , setMovieList}) {
+export function Addmovies() {
   const [name, setName] = useState("");
   const [poster, setPoster] = useState("");
   const [rating, setRating] = useState("");
@@ -12,7 +12,12 @@ export function Addmovies({ MovieList , setMovieList}) {
   const [rating1, setRating1] = useState("");
   const [trailler, setTrailler] = useState("");
   const history =useHistory();
-  return (
+  // 1. method must be POST
+  // 2. body - JSON data
+  // 3. headers -
+  
+
+    return (
     <div className="App">
       <div className="add-movie-form">
         <TextField variant="outlined" onChange={(event) => setName(event.target.value)}
@@ -40,9 +45,8 @@ export function Addmovies({ MovieList , setMovieList}) {
             Rating1: rating1,
             trailler:trailler,
           };
-          setMovieList([...MovieList, newMovie]);
-          history.push("/Movie");
-        }}>Add Movie</Button>
+          fetch(`${API}/movie/`, {method: "POST",body: JSON.stringify(newMovie),headers: {"Content-Type": "application/json",},})
+          .then(() =>  history.push("/Movie"))     }}>Add Movie</Button>
       </div>
     </div>
   );
