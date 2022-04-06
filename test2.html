@@ -1,0 +1,35 @@
+<html>
+<head>
+<script>
+function displayResult(event)
+{
+if(event.keyCode == 13)
+{
+var x=document.getElementById("thebox");
+var option=document.createElement("option");
+var txtv=document.getElementById("theinput");
+option.text=txtv.value;
+try
+  {
+  // for IE earlier than version 8
+  x.add(option,x.options[null]);
+  }
+catch (e)
+  {
+  x.add(option,null);
+  }
+}
+}
+
+</script>
+</head>
+<body>
+<form>
+<select id="thebox">
+</select>
+</form>
+<br>
+<input type="text" id="theinput" onkeyup="displayResult(event)"/>
+</body>
+</html>
+

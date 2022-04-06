@@ -17,7 +17,7 @@ export function Editmovie() {
   const [poster, setPoster] = useState("");
   const [rating, setRating] = useState("");
   const [summary, setsummary] = useState("");
-  const [rating1, setRating1] = useState("");
+  //const [rating1, setRating1] = useState("");
   const [trailler, setTrailler] = useState("");
   const getMovies = (id) => {
     fetch(`${API}/movie/${id}`, { method: "GET" }) // promise
@@ -26,10 +26,10 @@ export function Editmovie() {
       //.then((mvs) => setMovieList(mvs));};
       .then((Mvs) => {
         setName(Mvs.name);
-        setPoster(Mvs.pic);
-        setRating(Mvs.Rating);
-        setRating1(Mvs.Rating1);
-        setsummary(Mvs.about);
+        setPoster(Mvs.poster);
+        setRating(Mvs.rating);
+        // setRating1(Mvs.Rating1);
+        setsummary(Mvs.summary);
         setTrailler(Mvs.trailler);
       });
   };
@@ -71,12 +71,12 @@ export function Editmovie() {
           placeholder="Enter the Rating star of Movie"
           value={rating}
         />
-        <TextField
+        {/* <TextField
           variant="outlined"
           onChange={(event) => setRating1(event.target.value)}
           placeholder="Enter the Rating of Movie"
           value={rating1}
-        />
+        /> */}
         <TextField
           variant="outlined"
           onChange={(event) => setsummary(event.target.value)}
@@ -101,7 +101,7 @@ export function Editmovie() {
               pic: poster,
               about: summary,
               Rating: rating,
-              Rating1: rating1,
+              //Rating1: rating1,
               trailler: trailler,
             };
             {

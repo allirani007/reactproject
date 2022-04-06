@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Test</title>
+    <style type="text/css">     
+        select 
+        {
+            width:200px;
+        }
+    </style>
+    <script type="text/javascript">
+
+        function otherSelect(obj)  
+        {           
+            var input = document.getElementById('stroke');
+            input.value = obj.value;
+        }
+    </script>
+</head>
+<body>
+<form action="" method="">
+    <input id="stroke" name="stroke"/>
+    <select id="theItems" name="theItems" onchange="otherSelect(this)">
+        <option value="item1">Item One</option>
+        <option value="item2">Item Two</option>
+        <option value="item3">Item Three</option>
+        <option value="item3">Item Four</option>
+        <option value="other">Other</option>      
+    </select>
+
+    <div id="otherBox" style="visibility: hidden;">
+        If other: <input name="otherField" type="text" /> 
+    </div>
+</form>
+
+
+</body>
+</html>

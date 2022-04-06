@@ -20,8 +20,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Context from "@mui/base/TabsUnstyled/TabsContext";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
@@ -35,7 +35,7 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 export default function App() {
   const INT_MOVIE_LIST = [
     {
-      id:100,
+      id: 100,
       name: "Valimai",
       pic: "https://images.news18.com/ibnlive/uploads/2021/07/1626014989_valimai.jpg",
       about:
@@ -45,7 +45,7 @@ export default function App() {
       trailler: "https://www.youtube.com/embed/rJM11ygwFHo",
     },
     {
-      id:"101",
+      id: "101",
       name: "Veeramae Vaagai Soodum",
       pic: "https://assets.thehansindia.com/h-upload/2021/11/27/1600x960_1123689-veeramae-vaagai-soodum.jpg",
       about:
@@ -55,7 +55,7 @@ export default function App() {
       trailler: "https://www.youtube.com/embed/OLPYeeUytL8",
     },
     {
-      id:"102",
+      id: "102",
       name: "Naai Sekar",
       pic: "https://images.pexels.com/photos/618833/pexels-photo-618833.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
       about:
@@ -65,7 +65,7 @@ export default function App() {
       trailler: "https://www.youtube.com/embed/Ht5bwzeYszM",
     },
     {
-      id:"103",
+      id: "103",
       name: "Enna Solla Pogirai",
       pic: "https://m.media-amazon.com/images/M/MV5BM2Y0ODBhYjctNzZiYi00ODIwLWJiMmYtM2ZlNjUwZDlkYjQ3XkEyXkFqcGdeQXVyMTQyOTU3OTMw._V1_FMjpg_UX1000_.jpg",
       about:
@@ -75,7 +75,7 @@ export default function App() {
       trailler: "https://www.youtube.com/embed/K8ngHnShirw",
     },
     {
-      id:"104",
+      id: "104",
       name: "Yaaro",
       pic: "https://i1.wp.com/www.socialnews.xyz/wp-content/uploads/2019/10/30/Yaaro-Movie-First-Look-Poster-.jpg?quality=80&zoom=1&ssl=1",
       about:
@@ -85,7 +85,7 @@ export default function App() {
       trailler: "https://www.youtube.com/embed/ATQi-_zUOh0",
     },
     {
-      id:"105",
+      id: "105",
       name: "Maaran",
       pic: "https://static.toiimg.com/photo/msid-87310079/87310079.jpg?118968",
       about:
@@ -95,7 +95,7 @@ export default function App() {
       trailler: "https://www.youtube.com/embed/IpDwq7HvTF0",
     },
     {
-      id:"106",
+      id: "106",
       name: "Mahaan",
       pic: "https://static-koimoi.akamaized.net/wp-content/new-galleries/2022/02/mahaan-movie-review-1.jpg",
       about:
@@ -105,7 +105,7 @@ export default function App() {
       trailler: "https://www.youtube.com/embed/i4ORfM-q35Y",
     },
     {
-      id:"107",
+      id: "107",
       name: "maara",
       pic: "https://m.media-amazon.com/images/M/MV5BYmM3OTEzOTEtM2Y4Yi00ZGNjLWJmMjAtOTQ4YjBiOGUzZmNkXkEyXkFqcGdeQXVyMTI3MjIwMzU2._V1_FMjpg_UX1000_.jpg",
       about:
@@ -115,7 +115,7 @@ export default function App() {
       trailler: "https://www.youtube.com/embed/Lv5KUKKwQEw",
     },
     {
-      id:"108",
+      id: "108",
       name: "annatha",
       pic: "https://m.media-amazon.com/images/M/MV5BMjNkNTE1NGUtNjNhMi00ZmY1LWI2NDEtZWZlYTkwZjNjMGMzXkEyXkFqcGdeQXVyMTEzNzg0Mjkx._V1_.jpg",
       about:
@@ -199,7 +199,7 @@ export default function App() {
               >
                 {mode === "light" ? "dark" : "light"} mode
               </Button>
-              {  /* <Button color="inherit" 
+              {/* <Button color="inherit" 
          onClick={()=>setmode(mode==="light" ? "dark":"light")}>{mode}</Button> refallirani */}
             </Toolbar>
           </AppBar>
@@ -221,16 +221,17 @@ export default function App() {
                 <Example />
               </Route>
               <Route path="/Movie/edit/:id">
-                <Editmovie  />
+                <Editmovie />
               </Route>
               <Route exact path="/Movie/add">
-                <Addmovies  />
+                <Addmovies />
               </Route>
               <Route path="/Movie/:id">
                 <Moviedetails />
               </Route>
               <Route path="/Movie">
                 <Movie MovieList={MovieList} setMovieList={setMovieList} />
+                console.log(MovieList);
               </Route>
 
               <Route path="/films">

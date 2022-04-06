@@ -46,14 +46,13 @@ export default function Movie() {
           <Msg  name={usr.name} pic={usr.pic} about={usr.about} Rating={usr.Rating} Rating1={usr.Rating1} />
         ))} */}
 
-        {MovieList.map(({ name, pic, about, Rating, Rating1, id }, index) => (
+        {MovieList.map(({ name, poster, rating, summary, id }, index) => (
           <DisplayMovies
             key={index}
             name={name}
-            pic={pic}
-            about={about}
-            Rating={Rating}
-            Rating1={Rating1}
+            poster={poster}
+            summary={summary}
+            rating={rating}
             deletebutton={
               <IconButton
                 aria-label="delete"
