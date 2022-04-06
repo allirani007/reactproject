@@ -98,9 +98,9 @@ export function Editmovie() {
           onClick={() => {
             const updateMovie = {
               name: name,
-              pic: poster,
-              about: summary,
-              Rating: rating,
+              poster: poster,
+              summary: summary,
+              rating: rating,
               //Rating1: rating1,
               trailler: trailler,
             };
